@@ -1,0 +1,22 @@
+name: tasksh-spirotot
+summary: Tasksh is a shell command that wraps Taskwarrior commands.
+version: 1.2.0
+description: |
+    Tasksh is a shell command that wraps Taskwarrior commands. It is intended
+    to provide simpler Taskwarrior access, and add a few new features of its
+    own. The project is new, bear with us please.
+
+grade: stable
+confinement: classic
+
+apps:
+    tasksh:
+        command: bin/tasksh
+
+parts:
+    cmake-build:
+        source: http://taskwarrior.org/download/tasksh-latest.tar.gz
+        source-checksum: sha512/0c0a678a1cf48d1b7fcc123da5152d74bbb4334520252788ad38e3cb9bd2a5189902c066d7dbc848a23f6c7c25e53a8e1dc240dd6e57dbbdc993079a3e9fc417
+        plugin: cmake
+        configflags: 
+            - -DCMAKE_BUILD_TYPE=release
